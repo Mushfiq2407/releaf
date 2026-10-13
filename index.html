@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReLeaf | Eco-Friendly & Biodegradable Living</title>
+  <meta name="description" content="Shop 100% biodegradable, earth-conscious lifestyle products. Bamboo toothbrushes, beeswax food wraps, compost bins, and jute bags crafted for a zero-waste future.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M30,85 C25,50 45,20 85,15 C80,55 60,80 30,85 Z' fill='%232E8B57'/><path d='M30,85 C50,65 65,45 85,15' stroke='%23FAF8F2' stroke-width='4' fill='none'/></svg>">
+
+  <!-- Google Fonts: Poppins (Regular 400, Medium 500, SemiBold 600, Bold 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. Sticky Header with "R + leaf" Logo, Centered Nav & Action Icons
+       ========================================================================= -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <!-- ReLeaf Logo (Exact R + Leaf from Design System) -->
+      <a href="#home" class="brand-logo" id="brandLogoLink" aria-label="ReLeaf Home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+          <!-- Stylized 'R' Stem and Bowl in Sea Green -->
+          <path d="M42 22 V98 M42 24 H70 C84 24 92 34 92 46 C92 58 83 68 70 68 H42 M66 68 L92 98" 
+                stroke="#2E8B57" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Organic Leaves sprouting on the left -->
+          <path d="M42 38 C28 26 12 36 20 54 C32 54 40 46 42 38 Z" fill="#2E8B57"/>
+          <path d="M42 66 C26 58 10 70 22 84 C34 84 40 76 42 66 Z" fill="#20633e"/>
+        </svg>
+        <span>ReLeaf</span>
+      </a>
+
+      <!-- Centered Primary Navigation with green underline on active item -->
+      <nav class="primary-nav" id="primaryNav" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active" id="navHome">Home</a>
+        <a href="#catalog" class="nav-link" id="navCatalog">Catalog</a>
+        <a href="#cart" class="nav-link" id="navCart">Cart</a>
+        <a href="#tracking" class="nav-link" id="navTrackOrder">Track Order</a>
+        <a href="#contact" class="nav-link" id="navContact">Contact</a>
+      </nav>
+
+      <!-- Action Icons: Search, Wishlist, Cart & Leaf Avatar -->
+      <div class="header-actions">
+        <!-- Wishlist Button -->
+        <a href="#catalog" class="header-action-btn" id="wishlistActionBtn" aria-label="Wishlist">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="badge-count" id="headerWishlistCount" style="display: none;">0</span>
+        </a>
+
+        <!-- Cart Action with Bounce & Count Badge -->
+        <a href="#cart" class="header-action-btn" id="cartActionBtn" aria-label="Shopping Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="badge-count" id="headerCartCount" style="display: none;">0</span>
+        </a>
+
+        <!-- User Avatar with Green Leaf Emblem (Matching UI Spec) -->
+        <div class="user-avatar-badge" title="My Sustainable Profile" aria-label="User Account">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+          </svg>
+        </div>
+
+        <!-- Mobile Drawer Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open mobile menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Navigation -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" style="display: none;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+      <span style="font-weight: bold; font-size: 1.4rem; color: var(--color-sea-green);">ReLeaf</span>
+      <button id="mobileDrawerClose" style="font-size: 1.5rem; color: var(--color-charcoal);">&times;</button>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+      <a href="#home" class="mobile-nav-link" style="font-size: 1.1rem; font-weight: 500;">Home</a>
+      <a href="#catalog" class="mobile-nav-link" style="font-size: 1.1rem; font-weight: 500;">Catalog</a>
+      <a href="#cart" class="mobile-nav-link" style="font-size: 1.1rem; font-weight: 500;">Cart</a>
+      <a href="#tracking" class="mobile-nav-link" style="font-size: 1.1rem; font-weight: 500;">Track Order</a>
+      <a href="#contact" class="mobile-nav-link" style="font-size: 1.1rem; font-weight: 500;">Contact</a>
+    </div>
+  </div>
+
+  <!-- Main View Container for Single-Page Router -->
+  <main id="mainApp">
+
+    <!-- =======================================================================
+         PAGE 1: LANDING & CATALOG VIEW (#home, #catalog)
+         ======================================================================= -->
+    <section class="view-section active-view" id="viewLanding">
+      
+      <!-- Hero Banner -->
+      <section class="hero-banner">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <span class="promo-badge">
+              🌿 100% Earth-Friendly & Plastic-Free Living
+            </span>
+            <h1 class="hero-title">
+              Live Gently on the Earth, <span class="highlight-green">Without Compromise</span>
+            </h1>
+            <p class="hero-subtitle">
+              Consciously crafted biodegradable goods for home, personal care, and garden. Return what you use back to the soil with zero trace left behind.
+            </p>
+            <div class="hero-cta-group">
+              <a href="#catalog" class="btn-primary" id="btnHeroShopNow">
+                <span>Shop Sustainable</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </a>
+              <a href="#ecoPledge" class="btn-secondary" id="btnHeroPledge">
+                <span>Our Eco-Pledge</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Image & Badge -->
+          <div class="hero-image-wrapper">
+            <img src="assets/images/hero/hero-banner.jpg" alt="ReLeaf sustainable products curated collection" loading="eager">
+            <div class="hero-floating-card">
+              <div class="leaf-icon-bubble">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
+              </div>
+              <div>
+                <strong style="font-size: 0.92rem; display: block; color: var(--color-charcoal);">100% Compostable Packaging</strong>
+                <span style="font-size: 0.78rem; color: var(--color-charcoal-muted);">Water-activated cellulose tape & recycled paper</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Eco Impact Animated Counter Strip on Scroll -->
+      <section class="eco-impact-strip" id="ecoImpactStrip">
+        <div class="container impact-stats-grid">
+          <div class="impact-stat-item">
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <div class="stat-number" data-target="42500" data-suffix="+">0</div>
+            <div class="stat-label">Single-Use Plastics Prevented</div>
+          </div>
+
+          <div class="impact-stat-item">
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+            </div>
+            <div class="stat-number" data-target="8920" data-suffix="+">0</div>
+            <div class="stat-label">Native Trees Planted</div>
+          </div>
+
+          <div class="impact-stat-item">
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+            </div>
+            <div class="stat-number" data-target="15400" data-suffix=" kg">0</div>
+            <div class="stat-label">CO₂ Footprint Offset</div>
+          </div>
+
+          <div class="impact-stat-item">
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"></path></svg>
+            </div>
+            <div class="stat-number" data-target="100" data-suffix="%">0</div>
+            <div class="stat-label">Compostable & Biodegradable</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live Catalog Section -->
+      <section class="catalog-section" id="catalogSection">
+        <div class="container">
+          <div class="catalog-header">
+            <div class="catalog-title-row">
+              <div>
+                <h2>Sustainable Collection</h2>
+                <p>Pure botanical materials, zero toxic microplastics, hand-crafted with dignity.</p>
+              </div>
+              <span id="catalogResultsCount" style="font-size: 0.9rem; color: var(--color-charcoal-muted); font-weight: 500;">
+                Showing 12 items
+              </span>
+            </div>
+
+            <!-- Category Chips Strip (Live Filtering) -->
+            <div class="category-chips-strip" role="tablist" aria-label="Product Categories">
+              <button class="category-chip active" data-category="all">
+                <span>🌱 All Products</span>
+              </button>
+              <button class="category-chip" data-category="bathroom">
+                <span>🚿 Bathroom</span>
+              </button>
+              <button class="category-chip" data-category="kitchen">
+                <span>🍳 Kitchen</span>
+              </button>
+              <button class="category-chip" data-category="garden">
+                <span>🪴 Garden</span>
+              </button>
+              <button class="category-chip" data-category="bags">
+                <span>👜 Bags</span>
+              </button>
+              <button class="category-chip" data-category="personal-care">
+                <span>🌿 Personal Care</span>
+              </button>
+            </div>
+
+            <!-- Search Bar & Sort Dropdown -->
+            <div class="catalog-controls-row">
+              <div class="search-box-wrapper">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="catalogSearchInput" class="input-control search-input" placeholder="Search bamboo, beeswax, coir scrubbers..." aria-label="Search products">
+                <button id="catalogSearchClear" class="search-clear-btn" aria-label="Clear search">&times;</button>
+              </div>
+
+              <div class="sort-wrapper">
+                <label for="catalogSortSelect" class="sort-label">Sort by:</label>
+                <select id="catalogSortSelect" class="input-control sort-select" aria-label="Sort products">
+                  <option value="popular">Most Popular</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="rating">Highest Rating</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Cards Grid (Populated dynamically by app.js) -->
+          <div class="products-grid" id="productsGrid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- Interactive Plastic Footprint Calculator -->
+      <section class="container" style="margin: 4rem auto;">
+        <div style="background: linear-gradient(135deg, rgba(46, 139, 87, 0.08) 0%, rgba(245, 245, 220, 0.8) 100%); border: 1.5px solid var(--color-beige-dark); border-radius: var(--radius-lg); padding: 3rem 2.5rem; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center;">
+          <div>
+            <span class="promo-badge" style="margin-bottom: 0.75rem;">Interactive Calculator</span>
+            <h3 style="font-size: 2rem; margin-bottom: 0.75rem;">What's Your Household Plastic Footprint?</h3>
+            <p style="color: var(--color-charcoal-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+              Slide to adjust household members and see how switching to ReLeaf eliminates landfill burden.
+            </p>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <div style="display: flex; justify-content: space-between; font-weight: 600;">
+                <span>Household Size:</span>
+                <span id="footprintPersonsDisplay" style="color: var(--color-sea-green);">1 Person</span>
+              </div>
+              <input type="range" id="footprintSlider" min="1" max="8" value="1" style="accent-color: var(--color-sea-green); width: 100%; cursor: pointer;">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; text-align: center;">
+            <div style="background: #FFFFFF; padding: 1.5rem 1rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--color-beige-dark);">
+              <div id="footprintPlasticKg" style="font-size: 2rem; font-weight: bold; color: var(--color-sea-green);">14.8 kg</div>
+              <span style="font-size: 0.82rem; color: var(--color-charcoal-muted);">Plastic Avoided/Yr</span>
+            </div>
+            <div style="background: #FFFFFF; padding: 1.5rem 1rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border: 1px solid var(--color-beige-dark);">
+              <div id="footprintCo2Kg" style="font-size: 2rem; font-weight: bold; color: var(--color-terracotta);">36.2 kg</div>
+              <span style="font-size: 0.82rem; color: var(--color-charcoal-muted);">CO₂ Emissions Cut</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Eco-Pledge 3-Pillar Section -->
+      <section class="eco-pledge-section" id="ecoPledge">
+        <div class="container">
+          <div style="text-align: center; max-width: 600px; margin: 0 auto 3rem;">
+            <span class="promo-badge" style="margin: 0 auto 0.75rem;">Our Green Charter</span>
+            <h2 style="font-size: 2.3rem; margin-bottom: 0.5rem;">The ReLeaf Sustainability Promise</h2>
+            <p style="color: var(--color-charcoal-muted); font-size: 1rem;">
+              We make zero compromises between high everyday performance and pure ecological integrity.
+            </p>
+          </div>
+
+          <div class="pledge-grid">
+            <div class="pledge-card">
+              <div class="pledge-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <h3 style="font-size: 1.25rem;">100% Zero Plastic Packaging</h3>
+              <p style="color: var(--color-charcoal-muted); font-size: 0.92rem;">
+                Every box arrives sealed in kraft paper, starch-based cushioning, and water-activated cellulose tape. No bubble wrap, no synthetic tape, ever.
+              </p>
+            </div>
+
+            <div class="pledge-card">
+              <div class="pledge-icon" style="background-color: var(--color-terracotta);">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <h3 style="font-size: 1.25rem;">Fair Living-Wage Artisans</h3>
+              <p style="color: var(--color-charcoal-muted); font-size: 0.92rem;">
+                Our jute, palm leaf, and neem crafts directly support indigenous cooperatives and rural artisans with ethical remuneration and safe workshops.
+              </p>
+            </div>
+
+            <div class="pledge-card">
+              <div class="pledge-icon" style="background-color: #3E82AF;">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+              </div>
+              <h3 style="font-size: 1.25rem;">1% for Western Ghats Reforestation</h3>
+              <p style="color: var(--color-charcoal-muted); font-size: 0.92rem;">
+                Every purchase automatically plants a native rainforest sapling in the Western Ghats biodiversity hotspot, verified on your order timeline.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+
+    <!-- =======================================================================
+         PAGE 2: PRODUCT DETAIL VIEW (#product/:id)
+         ======================================================================= -->
+    <section class="view-section product-detail-view" id="viewProductDetail">
+      <div class="container" id="productDetailContent">
+        <!-- Rendered dynamically by renderProductDetailView(id) -->
+      </div>
+    </section>
+
+
+    <!-- =======================================================================
+         PAGE 3: CART & CHECKOUT VIEW (#cart, #checkout)
+         ======================================================================= -->
+    <section class="view-section cart-checkout-view" id="viewCartCheckout">
+      <div class="container">
+        <h1 style="font-size: 2.2rem; margin-bottom: 2rem;" id="cartItemsCountTitle">
+          Your Sustainable Cart
+        </h1>
+
+        <div class="cart-layout-grid">
+          <!-- Left Column: Cart Items List & Checkout Form -->
+          <div>
+            <!-- Cart Items Card -->
+            <div class="cart-items-card">
+              <div class="cart-header-row">
+                <span style="font-weight: 600; font-size: 1.05rem;">Cart Items</span>
+                <span style="font-size: 0.85rem; color: var(--color-sea-green); font-weight: 500;">
+                  🌱 100% Eco-Packaging Included
+                </span>
+              </div>
+              <div id="cartItemsList"></div>
+            </div>
+
+            <!-- Checkout Form Card -->
+            <div class="checkout-section-wrapper" id="checkoutFormCard">
+              <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Delivery & Payment</h2>
+              <p style="color: var(--color-charcoal-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+                Enter your address details for our zero-carbon electric vehicle delivery route.
+              </p>
+
+              <form id="checkoutForm" novalidate>
+                <div class="checkout-grid">
+                  <!-- Full Name -->
+                  <div>
+                    <label class="form-label" for="custName">Full Name *</label>
+                    <input type="text" id="custName" class="input-control" placeholder="Arjun Mehta" required>
+                    <span class="field-error-msg">Please enter your full name (at least 3 characters).</span>
+                  </div>
+
+                  <!-- Email Address -->
+                  <div>
+                    <label class="form-label" for="custEmail">Email Address *</label>
+                    <input type="email" id="custEmail" class="input-control" placeholder="arjun@example.com" required>
+                    <span class="field-error-msg">Please provide a valid email address.</span>
+                  </div>
+
+                  <!-- Phone Number -->
+                  <div>
+                    <label class="form-label" for="custPhone">10-Digit Mobile Number *</label>
+                    <input type="tel" id="custPhone" class="input-control" placeholder="9876543210" maxlength="10" required>
+                    <span class="field-error-msg">Enter a valid 10-digit Indian phone number (starting with 6-9).</span>
+                  </div>
+
+                  <!-- PIN Code -->
+                  <div>
+                    <label class="form-label" for="custPincode">6-Digit Pincode *</label>
+                    <input type="text" id="custPincode" class="input-control" placeholder="560038" maxlength="6" required>
+                    <span class="field-error-msg">Enter a valid 6-digit Indian PIN code.</span>
+                  </div>
+
+                  <!-- Street Address -->
+                  <div class="form-group-full">
+                    <label class="form-label" for="custAddress">Street Address / Apartment *</label>
+                    <input type="text" id="custAddress" class="input-control" placeholder="Flat 402, Green Meadows, 12th Main Rd" required>
+                    <span class="field-error-msg">Please enter your delivery street address.</span>
+                  </div>
+
+                  <!-- City -->
+                  <div>
+                    <label class="form-label" for="custCity">City *</label>
+                    <input type="text" id="custCity" class="input-control" placeholder="Bengaluru" required>
+                    <span class="field-error-msg">Please enter your city.</span>
+                  </div>
+
+                  <!-- State -->
+                  <div>
+                    <label class="form-label" for="custState">State *</label>
+                    <select id="custState" class="input-control" required>
+                      <option value="">Select State</option>
+                      <option value="Karnataka" selected>Karnataka</option>
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="Delhi">Delhi</option>
+                      <option value="Tamil Nadu">Tamil Nadu</option>
+                      <option value="Telangana">Telangana</option>
+                      <option value="Kerala">Kerala</option>
+                      <option value="Gujarat">Gujarat</option>
+                      <option value="West Bengal">West Bengal</option>
+                      <option value="Rajasthan">Rajasthan</option>
+                      <option value="Other">Other State</option>
+                    </select>
+                    <span class="field-error-msg">Please select your state.</span>
+                  </div>
+                </div>
+
+                <!-- Payment Modes Section -->
+                <div class="payment-modes-container">
+                  <label class="form-label" style="font-size: 1rem; margin-bottom: 0.75rem;">Select Payment Mode *</label>
+                  
+                  <div class="payment-mode-tabs" role="tablist">
+                    <button type="button" class="payment-tab-btn active" data-mode="upi">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                      <span>UPI / QR</span>
+                    </button>
+                    <button type="button" class="payment-tab-btn" data-mode="card">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                      <span>Card</span>
+                    </button>
+                    <button type="button" class="payment-tab-btn" data-mode="netbanking">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="21" x2="21" y2="21"></line><line x1="3" y1="10" x2="21" y2="10"></line><polygon points="12 3 2 10 22 10 12 3"></polygon></svg>
+                      <span>Net Banking</span>
+                    </button>
+                    <button type="button" class="payment-tab-btn" data-mode="cod">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle></svg>
+                      <span>Cash on Deliv.</span>
+                    </button>
+                  </div>
+
+                  <!-- UPI Panel -->
+                  <div class="payment-subpanel active" id="panel-upi">
+                    <label class="form-label" for="upiIdInput">Enter UPI ID / VPA</label>
+                    <div style="display: flex; gap: 0.5rem;">
+                      <input type="text" id="upiIdInput" class="input-control" placeholder="arjun@okhdfcbank" value="arjun@okhdfcbank">
+                    </div>
+                    <span class="field-error-msg">Enter a valid UPI ID (e.g. name@bank).</span>
+                    <div style="font-size: 0.78rem; color: var(--color-charcoal-muted); margin-top: 0.5rem;">
+                      Popular apps supported: Google Pay, PhonePe, Paytm, BHIM.
+                    </div>
+                  </div>
+
+                  <!-- Card Panel -->
+                  <div class="payment-subpanel" id="panel-card">
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                      <div>
+                        <label class="form-label" for="cardNumInput">Card Number</label>
+                        <input type="text" id="cardNumInput" class="input-control" placeholder="4532 8920 1192 8402" maxlength="19">
+                        <span class="field-error-msg">Enter a valid 16-digit card number.</span>
+                      </div>
+                      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+                        <div>
+                          <label class="form-label" for="cardExpiryInput">Expiry (MM/YY)</label>
+                          <input type="text" id="cardExpiryInput" class="input-control" placeholder="08/28" maxlength="5">
+                          <span class="field-error-msg">Enter MM/YY</span>
+                        </div>
+                        <div>
+                          <label class="form-label" for="cardCvvInput">CVV</label>
+                          <input type="password" id="cardCvvInput" class="input-control" placeholder="•••" maxlength="4">
+                          <span class="field-error-msg">Enter 3-4 digits</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Net Banking Panel -->
+                  <div class="payment-subpanel" id="panel-netbanking">
+                    <label class="form-label" for="bankSelect">Select Bank</label>
+                    <select id="bankSelect" class="input-control">
+                      <option value="hdfc">HDFC Bank</option>
+                      <option value="sbi">State Bank of India (SBI)</option>
+                      <option value="icici">ICICI Bank</option>
+                      <option value="axis">Axis Bank</option>
+                      <option value="kotak">Kotak Mahindra Bank</option>
+                    </select>
+                  </div>
+
+                  <!-- Cash on Delivery Panel -->
+                  <div class="payment-subpanel" id="panel-cod">
+                    <p style="font-size: 0.88rem; color: var(--color-charcoal-muted); line-height: 1.5;">
+                      📦 Pay via exact cash or UPI QR scan at the door upon receipt of your zero-plastic parcel.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Simulation Toggle Controls (Test Success vs Test Failure) -->
+                <div class="sim-mode-toggle-box">
+                  <div>
+                    <strong>⚙️ Test Payment Simulation:</strong>
+                    <span style="font-size: 0.78rem; display: block; color: var(--color-charcoal-muted);">
+                      Toggle outcome to test failure & retry state
+                    </span>
+                  </div>
+                  <div class="sim-toggle-switch">
+                    <button type="button" class="sim-badge-btn success-active" id="simSuccessBtn">
+                      Simulate Success ✓
+                    </button>
+                    <button type="button" class="sim-badge-btn" id="simFailureBtn">
+                      Simulate Failure ✕
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Simulated Failure Banner with Retry Button -->
+                <div class="payment-failure-banner" id="paymentFailureBanner">
+                  <div style="font-size: 1.5rem; margin-bottom: 0.4rem;">⚠️ Payment Authorization Failed</div>
+                  <p style="font-size: 0.9rem; color: var(--color-charcoal); margin-bottom: 1rem;">
+                    Your issuing bank declined the transaction (Simulated Error: ERR_AUTH_TIMEOUT). Your cart items are preserved safe and sound.
+                  </p>
+                  <button type="button" class="btn-primary" id="btnRetryPayment" style="background-color: var(--color-terracotta); border-color: var(--color-terracotta);">
+                    <span>Retry Payment</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+                  </button>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                  <button type="submit" class="btn-primary" id="btnPlaceOrder" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+                    <span>Place Order</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right Column: Order Summary & Coupon -->
+          <div>
+            <div class="order-summary-card">
+              <h3 style="font-size: 1.3rem;">Order Summary</h3>
+
+              <!-- Optional Coupon Box -->
+              <div>
+                <label for="couponInput" class="form-label" style="font-size: 0.85rem;">Have an Eco Coupon?</label>
+                <div class="coupon-box-wrapper">
+                  <input type="text" id="couponInput" class="input-control" placeholder="Try ECO10 or RELEAF20" style="text-transform: uppercase;">
+                  <button type="button" class="btn-secondary" id="btnApplyCoupon" style="padding: 0.6rem 1.25rem;">Apply</button>
+                </div>
+                <div id="couponAppliedTag" class="coupon-applied-tag"></div>
+              </div>
+
+              <div class="summary-line">
+                <span>Subtotal</span>
+                <span id="summarySubtotal">₹0</span>
+              </div>
+
+              <div class="summary-line">
+                <span>Eco Shipping</span>
+                <span id="summaryShipping">₹0</span>
+              </div>
+
+              <div class="summary-line" id="summaryDiscountRow" style="display: none; color: var(--color-sea-green);">
+                <span>Coupon Discount</span>
+                <span id="summaryDiscount">-₹0</span>
+              </div>
+
+              <div class="summary-line">
+                <span>Carbon Neutral Offset</span>
+                <span style="color: var(--color-sea-green); font-weight: 500;">Sponsored (FREE)</span>
+              </div>
+
+              <div class="summary-line total-line">
+                <span>Total Amount</span>
+                <span class="total-val" id="summaryTotal">₹0</span>
+              </div>
+
+              <div style="background: var(--color-beige-light); border: 1px solid var(--color-beige-dark); border-radius: var(--radius-sm); padding: 0.85rem; font-size: 0.82rem; color: var(--color-charcoal-muted); display: flex; gap: 0.5rem; align-items: center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-sea-green)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <span>30-Day Zero-Hassle Biodegradable Guarantee. Free returns in paper envelopes.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =======================================================================
+         PAGE 4: ORDER TRACKING VIEW (#tracking, #tracking/:orderId)
+         ======================================================================= -->
+    <section class="view-section tracking-view" id="viewOrderTracking">
+      <div class="container" id="trackingViewContainer">
+        <!-- Tracking Lookup Bar -->
+        <div class="tracking-lookup-box">
+          <span class="promo-badge" style="margin-bottom: 0.5rem;">Live Fleet Dispatch</span>
+          <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Track Your Eco-Parcel</h2>
+          <p style="color: var(--color-charcoal-muted); font-size: 0.9rem;">
+            Follow your order's zero-emission electric vehicle route from our Nilgiri packaging hub to your doorstep.
+          </p>
+
+          <form id="trackingLookupForm" class="tracking-input-group">
+            <input type="text" id="trackingLookupInput" class="input-control" placeholder="Enter Order ID (e.g. RL-2026-8942)" required>
+            <button type="submit" class="btn-primary" style="white-space: nowrap;">Track Order</button>
+          </form>
+
+          <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 1rem; font-size: 0.82rem; color: var(--color-charcoal-muted);">
+            <span>Try sample orders:</span>
+            <button type="button" class="btn-subtle sample-order-chip" data-order="RL-2026-8942" style="padding: 0.2rem 0.6rem;">RL-2026-8942</button>
+            <button type="button" class="btn-subtle sample-order-chip" data-order="RL-2026-3105" style="padding: 0.2rem 0.6rem;">RL-2026-3105</button>
+          </div>
+        </div>
+
+        <!-- Tracking Timeline Card -->
+        <div class="tracking-card">
+          <!-- Animated Timeline Progress Bar & Steps -->
+          <div class="timeline-wrapper">
+            <div class="timeline-progress-bar-bg"></div>
+            <div class="timeline-progress-bar-fill" id="timelineProgressFill" style="width: 50%;"></div>
+            <div class="timeline-steps-row" id="timelineStepsRow"></div>
+          </div>
+
+          <!-- Live Progress Simulator Widget -->
+          <div class="live-sim-status-banner">
+            <div>
+              <span class="sim-pulse-indicator"></span>
+              <strong>Live Dispatch Simulator:</strong> Auto-advances delivery progress every 4.5 seconds.
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+              <button class="btn-subtle" id="btnTrackingToggleSim" style="font-size: 0.82rem; background: #FFFFFF;">
+                Pause Live Sim ⏸
+              </button>
+              <button class="btn-subtle" id="btnTrackingNextStep" style="font-size: 0.82rem; background: #FFFFFF;">
+                Next Step ⏩
+              </button>
+              <button class="btn-subtle" id="btnTrackingResetStep" style="font-size: 0.82rem; background: #FFFFFF;">
+                Reset ↺
+              </button>
+            </div>
+          </div>
+
+          <!-- Order Summary Card & Carbon Saved Fun Fact (Dynamic) -->
+          <div id="trackingOrderDetailsCard" style="margin-top: 2rem;"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       Floating Components: Toasts, Canvas Confetti & Modals
+       ========================================================================= -->
+
+  <!-- Toast Notifications Container -->
+  <div class="toast-container" id="toastContainer" aria-live="assertive"></div>
+
+  <!-- Confetti Celebration Canvas -->
+  <canvas id="celebrationCanvas"></canvas>
+
+  <!-- Quick View Modal -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="qvModalClose" aria-label="Close modal">&times;</button>
+      <div class="modal-image-col">
+        <img id="qvModalImage" src="assets/images/bamboo-toothbrush/front.jpg" alt="Quick View Preview">
+      </div>
+      <div class="modal-content-col" id="qvModalContent"></div>
+    </div>
+  </div>
+
+  <!-- Order Confirmation Overlay -->
+  <div class="confirmation-overlay" id="orderConfirmationOverlay">
+    <div class="confirmation-card">
+      <div class="order-success-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h2 style="font-size: 1.8rem; color: var(--color-sea-green);">Order Confirmed!</h2>
+      <p style="color: var(--color-charcoal-muted); font-size: 0.95rem;">
+        Thank you for choosing zero-waste living. Your order has been scheduled for sustainable packaging.
+      </p>
+
+      <div id="orderSuccessDetails"></div>
+
+      <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+        <button class="btn-primary" id="btnGoToTracking" style="flex: 1;">Track Your Order</button>
+        <button class="btn-secondary" id="btnContinueShopping" style="flex: 1;">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       Footer with Eco-Pledge & Environmental Certifications
+       ========================================================================= -->
+  <footer class="site-footer" id="siteFooter">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="footer-brand-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 120 120" fill="none">
+              <path d="M42 22 V98 M42 24 H70 C84 24 92 34 92 46 C92 58 83 68 70 68 H42 M66 68 L92 98" stroke="#2E8B57" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M42 38 C28 26 12 36 20 54 C32 54 40 46 42 38 Z" fill="#2E8B57"/>
+              <path d="M42 66 C26 58 10 70 22 84 C34 84 40 76 42 66 Z" fill="#44b677"/>
+            </svg>
+            <span>ReLeaf</span>
+          </div>
+          <p class="footer-desc">
+            ReLeaf is an independent sustainable lifestyle studio. We design high-utility everyday essentials out of renewable wild plants, organic fibers, and natural clays.
+          </p>
+          <div style="display: flex; gap: 0.75rem; margin-top: 0.5rem;">
+            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 0.3rem 0.6rem; border-radius: var(--radius-xs);">🌱 Plastic-Free Certified</span>
+            <span style="font-size: 0.8rem; background: rgba(255,255,255,0.1); padding: 0.3rem 0.6rem; border-radius: var(--radius-xs);">🌍 1% For The Planet</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#catalog">Catalog</a>
+            <a href="#cart">Shopping Cart</a>
+            <a href="#tracking">Track Order</a>
+            <a href="#ecoPledge">Our Eco-Pledge</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <div class="footer-links">
+            <a href="#catalog">Bathroom Essentials</a>
+            <a href="#catalog">Zero-Waste Kitchen</a>
+            <a href="#catalog">Garden & Planters</a>
+            <a href="#catalog">Artisan Jute Bags</a>
+            <a href="#catalog">Personal Care</a>
+          </div>
+        </div>
+
+        <div class="footer-col" id="contactSection">
+          <h4>Contact & Support</h4>
+          <p style="color: #b3c2b8; font-size: 0.9rem; margin-bottom: 0.75rem;">
+            Eco-Distribution Hub, Western Ghats Eco-Park, Bengaluru, Karnataka 560038
+          </p>
+          <p style="color: #b3c2b8; font-size: 0.9rem; margin-bottom: 0.4rem;">
+            Email: <strong style="color: #FFFFFF;">support@releaf.eco</strong>
+          </p>
+          <p style="color: #b3c2b8; font-size: 0.9rem;">
+            Toll-Free: <strong style="color: #FFFFFF;">1800-419-LEAF</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          © 2026 ReLeaf Sustainability Studio. Crafted with reverence for the Earth.
+        </div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#home" style="color: #8fa094;">Privacy Policy</a>
+          <a href="#home" style="color: #8fa094;">Zero-Waste Shipping</a>
+          <a href="#home" style="color: #8fa094;">Artisan Verification</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
